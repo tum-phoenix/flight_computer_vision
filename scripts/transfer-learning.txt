@@ -1,3 +1,25 @@
 # get transfer learning training data
 !git clone https://github.com/aditya9898/transfer-learning.git
 !mv transfer-learning/train train
+
+
+# predict on a single image
+from imageio import imread
+from keras.preprocessing import image
+img_path = "./train/horses/images (1).jpg"
+model.predict
+
+orig_images = [] # Store the images here.
+input_images = [] # Store resized versions of the images here.
+
+orig_images.append(imread(img_path))
+img = image.load_img(img_path)
+img = image.img_to_array(img) 
+img = preprocess_input(img)
+
+input_images.append(img)
+input_images = np.array(input_images)
+
+y_pred = model.predict(input_images)
+print(y_pred)
+print(np.argmax(y_pred))
